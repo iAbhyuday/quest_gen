@@ -1,0 +1,24 @@
+version: "3"
+
+services:
+  llm-document-retriever:
+    image: siemens/llm-document-retriever:1.0
+    container_name: llm-document-retriever
+    env_file: .env
+    ports:
+      - "58071:80"
+    volumes:
+      - ${MOUNT_PATH}:/llm-document-retriever
+    restart: unless-stopped
+    networks:
+      industrial-edge-bridge-network:
+    build:
+      context: ./services/siemens/
+      dockerfile: Dockerfile
+      target: production
+      
+
+networks:
+  industrial-edge-bridge-network:
+    name: proxy-redirect
+    external: true
