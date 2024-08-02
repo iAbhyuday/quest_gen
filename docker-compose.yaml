@@ -1,0 +1,58 @@
+version: '2.4'
+### Services ###
+services: 
+  server:
+    env_file: ./model.env
+    image: quest-gen-server-rc:1.0.0
+    build:
+      context: ./server/
+      dockerfile: Dockerfile
+    container_name: server
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    networks:
+      - quest-gen
+
+    volumes:
+      - ./server:/src
+      - ${MODEL_PATH}:/models
+  client:
+    image: quest-gen-client-rc:1.0.0
+    build:
+      context: ./client/
+      dockerfile: Dockerfile
+    container_name: client
+    ports:
+      - 8000:8000
+    networks:
+      - quest-gen
+    volumes:
+      - ./client:/src
+    env_file: ./.env
+  
+  vector-store:
+    image: chromadb/chroma:latest
+    container_name: chromadb
+    environment:
+      - ALLOW_RESET=TRUE
+      - IS_PERSISTENT=TRUE
+    networks:
+      - quest-gen
+    volumes:
+      - index_data:/chroma/.chroma/index
+
+volumes:
+  index_data:
+    driver: local
+  backups:
+    driver: local 
+
+networks:
+  quest-gen:
+    name: quest-gen
+    external: false
