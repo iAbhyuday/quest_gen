@@ -1,0 +1,20 @@
+{
+    "types": [
+        {
+            "type_id": 1,
+            "type_desc": "This type of question is composed of two parts: a stem that identifies the question or problem, and a set of alternatives or possible answers that contain a key that is the best answer to the question, and several distractors that are plausible but incorrect answers to the question.\nYou will reply only in Json with the following attributes: question ,options , correct_option, detailed_explaination"
+        },
+
+        {
+            "type_id": 2,
+            "type_desc": "Question Format: Multiple correct choice type question\nStructure: The question should consist of:\nA list of relevant names/places/nouns (e.g. events, concepts, person).\nA question asking how many of the listed items fit a specific criterion.\nFour multiple-choice options (a, b, c, d) representing different counts.\nComponents:\n\nList of Items: Provide a numbered list of 2 to 5 items related to a specific topic.\nQuestion: Pose a question asking how many of the listed items fit a certain criterion.\nOptions:\n(a) Only one(if only one of the abve options are correct)\n(b) Only two(if only two options are correct)\n(c) All (if all of them are correct)\n(d) None(if none of them are correct)\nYou will reply only in Json with the following attributes: items (list of items), question ,options , correct_option, detailed_explaination"
+        },
+        
+        {
+            "type_id": 3,
+            "type_desc": "Question Format: Assertion-Reasoning Type Question\nStructure:\n\n* Two statements (Statement-I and Statement-II) are given.\n* Four options (a, b, c, d) are provided to determine the correctness and relationship between the statements.\nComponents:\nStatement-I: An assertion or fact related to a specific topic.\nStatement-II: Another assertion or fact that may explain or relate to Statement-I.\nOptions:\n(a) Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I.\n(b) Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-I.\n(c) Statement-I is correct but Statement-II is incorrect.\n(d) Statement-I is incorrect but Statement-II is correct.\nYou will reply only in Json with the following attributes: Question (including statements), options (including descriptions), correct_option, detailed_explaination"
+        }
+    ]
+}
+
+
