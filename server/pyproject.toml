@@ -1,0 +1,28 @@
+
+[tool.poetry]
+name = "server"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+packages = [
+    { include = "app" },
+]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+uvicorn = "^0.23.2"
+ipykernel = "^6.29.5"
+langserve = {extras = ["server"], version = ">=0.0.30"}
+pydantic = "*"
+langchain = "^0.2.11"
+huggingface-hub = "^0.24.1"
+torch = "^2.3.1"
+transformers = "^4.43.1"
+langchain-community = "^0.2.10"
+llama-cpp-python = {url="https://github.com/abetlen/llama-cpp-python/releases/download/v0.2.83-cu122/llama_cpp_python-0.2.83-cp310-cp310-linux_x86_64.whl"}
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
