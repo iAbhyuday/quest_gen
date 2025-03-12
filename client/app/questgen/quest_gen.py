@@ -6,7 +6,7 @@ from pprint import pp
 from app.questgen.paper import Paper
 from app.questgen.subject import Subject
 from app.questgen.topic import Topic
-from app.db.vector_db import VectorDB
+from client.app.indexer.indexer import VectorDB
 from app.prompts.basic import basic_prompt,inst
 from langchain_community.document_loaders import TextLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter

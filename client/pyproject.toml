@@ -1,19 +1,21 @@
 [tool.poetry]
-name = "client"
+name = "chat-client"
 version = "0.1.0"
-description = ""
-authors = ["ABHYUDAY TRIPATHI <tripathi.abhyuday@siemens.com>"]
+description = "chat client for llm-server"
+authors = ["iabhyuday <abhyuday964808@gmail.com>"]
+license = "MIT"
 readme = "README.md"
-package-mode = false
+
 [tool.poetry.dependencies]
-python = ">=3.10,<3.13"
-ipykernel = "^6.29.5"
-langchain-chroma = "^0.1.2"
-langchain-huggingface = "^0.0.3"
-langchain-community = "^0.2.10"
-chromadb = "^0.5.5"
-langserve = "^0.2.2"
-streamlit = "^1.37.0"
+python = "^3.12"
+streamlit = "^1.43.2"
+redis = "^5.2.1"
+llama-index = "^0.12.23"
+llama-cloud-services = "^0.6.5"
+llama-index-vector-stores-chroma = "^0.4.1"
+google-generativeai = "^0.8.4"
+llama-index-embeddings-huggingface-api = "^0.3.0"
+pymupdf = "^1.25.3"
 
 
 [build-system]
